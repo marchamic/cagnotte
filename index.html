@@ -1,7 +1,106 @@
+
 <!DOCTYPE html>
+
 <html>
+
+<head>
+
+  <title>Cagnotte de Noël</title>
+
+  <style>
+
+    body {
+
+      text-align: center;
+
+      font-family: Arial, sans-serif;
+
+      background: linear-gradient(to bottom, #ffcccc, #ffeeee);
+
+      color: #333;
+
+    }
+
+    .cagnotte {
+
+      font-size: 4em;
+
+      font-weight: bold;
+
+      margin: 50px;
+
+      color: #900;
+
+    }
+
+    .progress-bar {
+
+      width: 80%;
+
+      height: 30px;
+
+      background: #ddd;
+
+      margin: auto;
+
+      border-radius: 15px;
+
+      overflow: hidden;
+
+      margin-top: 20px;
+
+    }
+
+    .progress {
+
+      height: 100%;
+
+      width: 0;
+
+      background: #900;
+
+      border-radius: 15px;
+
+      transition: width 0.5s;
+
+    }
+
+  </style>
+
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+  <h1>Cagnotte de Noël</h1>
+
+  <div class="cagnotte">$<span id="total">0</span></div>
+
+  <div class="progress-bar">
+
+    <div class="progress" id="progress"></div>
+
+  </div>
+
 </body>
+
+<script>
+
+  // Fonction pour mettre à jour le montant
+
+  function updateCagnotte(total, objectif) {
+
+    document.getElementById("total").innerText = total.toLocaleString();
+
+    const progress = Math.min((total / objectif) * 100, 100);
+
+    document.getElementById("progress").style.width = progress + "%";
+
+  }
+
+  // Exemple d'update :
+
+  updateCagnotte(0, 500); // Mettre votre objectif ici
+
+</script>
+
 </html>
